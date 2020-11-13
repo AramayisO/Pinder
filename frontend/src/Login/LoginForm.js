@@ -84,6 +84,8 @@ class LoginForm extends React.Component {
 
 LoginForm.propTypes = {
     buttonText: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired,
+    accentColor: PropTypes.string.isRequired,
 };
 
 export default LoginForm;
