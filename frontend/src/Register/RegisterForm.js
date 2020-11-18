@@ -10,6 +10,9 @@ class RegisterForm extends React.Component {
             passwordConfirm: '',
             name: '',
             zip: '',
+            city: '',
+            street: '',
+            usState: '',
         }
     }
 
@@ -57,6 +60,43 @@ class RegisterForm extends React.Component {
                             value={this.password}
                             onChange={this.handlePasswordConfirmChange}
                             placeholder="Confirm password"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="street">Street address</label>
+                        <input
+                            type="text"
+                            id="street"
+                            value={this.street}
+                            onChange={this.handleStreetChange}
+                            placeholder="Street"
+                        />
+                        <label htmlFor="city">City</label>
+                        <input
+                            type="text"
+                            id="city"
+                            value={this.city}
+                            onChange={this.handleCityChange}
+                            placeholder="City"
+                        />
+
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="usState">State</label>
+                        <input 
+                            type="text"
+                            id="usState"
+                            value={this.usState}
+                            onChange={this.handleStateChange}
+                            placeholder="State"
+                        />
+                        <lable htmlFor="zip">Zip</lable>
+                        <input
+                            type="text"
+                            id="zip"
+                            value={this.zip}
+                            onChange={this.handleZipChange}
+                            placeholder="zip"
                         />
                     </div>
                     <div className="text-center">
