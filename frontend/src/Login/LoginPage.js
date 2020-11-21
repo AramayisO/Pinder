@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../auth';
 
 import LoginForm from './LoginForm';
@@ -7,6 +8,9 @@ const LoginPage = (props) => {
 
     // Subscirbe to auth context to use auth service.
     const auth = useContext(AuthContext);
+    // The useHistory hook gives access to the `history` instance that
+    // can be used to navigate to different URLs.
+    const history = useHistory()
 
     // Gets passed to the login form to allow the login form to notify
     // the login page when the form has been submited.
@@ -20,7 +24,7 @@ const LoginPage = (props) => {
         }
 
         if (user) {
-            console.log('Success: ', user);
+            history.push('/');
         }
     }
 
