@@ -5,11 +5,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthService, AuthContext} from './auth'
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthContext.Provider value={new AuthService()}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </AuthContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
