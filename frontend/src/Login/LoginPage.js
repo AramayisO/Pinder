@@ -19,21 +19,15 @@ const LoginPage = (props) => {
 
     // Gets passed to the login form to allow the login form to notify
     // the login page when the form has been submited.
-    const handleLogin = async (email, password) => {
+    const handleLogin = (email, password) => {
         if (!isEmailValid(email)) {
             setError('Valid email required.');
         } else if (!password) {
             setError('Password required.');
         } else {
-            try {
-                let user = await auth.signInWithEmailAndPassword(email, password);
-
-                if (user) {
-                    history.push('/');
-                }
-            } catch(error) {
-                setError('Invalid email or password');
-            }
+            auth.signInWithEmailAndPassword(email, password)
+                .then(user => history.push('/'))
+                .catch(error => setError('Invalid email or password.'));
         }
     }
 
