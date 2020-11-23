@@ -5,6 +5,8 @@ import { AuthContext } from '../auth';
 import LoginForm from './LoginForm'; 
 import logo from '../logo.svg';
 
+import './login.css';
+
 const LoginPage = (props) => {
 
     // Subscirbe to auth context to use auth service.
