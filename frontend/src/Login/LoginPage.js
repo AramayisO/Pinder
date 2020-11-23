@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../auth';
 
-import LoginForm from './LoginForm';
+import LoginForm from './LoginForm'; 
+import logo from '../logo.svg';
 
 const LoginPage = (props) => {
 
@@ -29,8 +30,18 @@ const LoginPage = (props) => {
     }
 
     return (
-        <div className="container">
-            <LoginForm onSubmit={handleLogin} />
+        <div className="container vh-100 d-flex align-items-center">
+            <div className="w-100">
+                <div className="text-center">
+                    <img src={logo} width="200" alt="Pinder logo" />
+                    <h1>Login</h1>
+                </div>
+                <LoginForm onSubmit={handleLogin} />
+                <div className="mt-4 text-center">
+                    <span>Don't have an account? </span>
+                    <Link to='/register'>Register</Link>
+                </div>
+            </div>
         </div>
     );
 };
