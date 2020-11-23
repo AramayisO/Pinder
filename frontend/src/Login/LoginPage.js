@@ -29,7 +29,9 @@ const LoginPage = (props) => {
     }
 
     return (
-        <LoginForm onSubmit={handleLogin} />
+        <div className="container">
+            <LoginForm onSubmit={handleLogin} />
+        </div>
     );
 };
 
