@@ -22,6 +22,11 @@ const LoginForm = (props) => {
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" className="form-control" value={password} onChange={e => setPassword(e.target.value)}/>
             </div>
+            {props.error &&
+                <div className="alert alert-danger" role="alert">
+                    {props.error}
+                </div>
+            }
             <div className="text-center">
                 <button type="submit" className="btn btn-primary px-4">Login</button>
             </div>
