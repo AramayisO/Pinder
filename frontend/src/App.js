@@ -1,17 +1,16 @@
-import { useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
-import { AuthContext } from './auth';
+import { AuthRoute } from './common';
 import LoginPage from './Login/LoginPage';
+
+const Home = () => (<h1>Welcome to Pinder</h1>);
 
 function App() {
 
-    const auth = useContext(AuthContext);
-
     return (
         <Switch>
-            <Route path='/' exact={true} render={() => (<h1>Welcome to Pinder</h1>)} />
+            <AuthRoute path='/' exact={true} component={Home} />
             <Route path='/login' component={LoginPage} /> 
         </Switch>
     );
