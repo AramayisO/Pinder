@@ -1,7 +1,5 @@
 import firebase from 'firebase';
 
-// import app from 'firebase/app';
-
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -21,13 +19,21 @@ class AuthService {
     createUserWithEmailAndPassword = async (email, password) => {
         return firebase.auth()
             .createUserWithEmailAndPassword(email, password)
-            .then((user) => user.user);
+            .then((userCredential) => {
+                let user = userCredential.user;
+                this.sendEmailVerification(user);
+                return user;
+            });
     }
 
     signInWithEmailAndPassword = async (email, password) => {
         return firebase.auth()
             .signInWithEmailAndPassword(email, password)
-            .then((user) => user.user);
+            .then((userCredential) => userCredential.user);
+    }
+
+    sendEmailVerification = async (user) => {
+        return user.sendEmailVerification({url: 'http://localhost:3000'});
     }
 
     signOut = () => {
