@@ -36,6 +36,10 @@ class AuthService {
         return user.sendEmailVerification({url: 'http://localhost:3000'});
     }
 
+    sendPasswordResetEmail = async (email) => {
+        return firebase.auth().sendPasswordResetEmail(email, {url: 'http://localhost:3000'});
+    }
+
     signOut = () => {
         return firebase.auth().signOut();
     }
