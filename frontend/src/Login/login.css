@@ -1,0 +1,24 @@
+* {
+    color: #212121;
+}
+
+body {
+    background-color: #CFE2F3;
+}
+
+form button[type="submit"] {
+    color: #212121;
+    background-color: #D5A6BD;
+    border-color: #212121;
+}
+
+form button[type="submit"]:hover, button[type="submit"]:active, button[type="submit"]:focus {
+    color: #212121;
+    border-color: #212121;
+    background-color: rgba(213, 166, 189, 0.8) !important;
+}
+
+form input:focus {
+    border-color: #D5A6BD !important;
+    box-shadow: 0 0 0 0.2rem rgba(213, 166, 189, 0.5) !important;
+}
