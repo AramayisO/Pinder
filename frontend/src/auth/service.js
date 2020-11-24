@@ -18,12 +18,16 @@ class AuthService {
         firebase.initializeApp(firebaseConfig);
     }
 
-    createUserWithEmailAndPassword = (email, password) => {
-        return firebase.auth().createUserWithEmailAndPassword(email, password);
+    createUserWithEmailAndPassword = async (email, password) => {
+        return firebase.auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then((user) => user.user);
     }
 
-    signInWithEmailAndPassword = (email, password) => {
-        return firebase.auth().signInWithEmailAndPassword(email, password);
+    signInWithEmailAndPassword = async (email, password) => {
+        return firebase.auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((user) => user.user);
     }
 
     signOut = () => {
