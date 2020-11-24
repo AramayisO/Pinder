@@ -1,7 +1,12 @@
 import firebase from 'firebase';
 
 class AuthService {
+    
     constructor() {
+        firebase.auth()
+            .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+            .then(() => console.log('Auth: persistence = LOCAL'))
+            .catch((error) => console.log(error));
     }
 
     /**
