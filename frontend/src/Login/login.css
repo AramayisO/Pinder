@@ -12,7 +12,7 @@ form button[type="submit"] {
     border-color: #212121;
 }
 
-form button[type="submit"]:hover {
+form button[type="submit"]:hover, button[type="submit"]:active, button[type="submit"]:focus {
     color: #212121;
     border-color: #212121;
     background-color: rgba(213, 166, 189, 0.8) !important;
