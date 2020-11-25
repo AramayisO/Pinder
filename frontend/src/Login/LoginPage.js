@@ -62,6 +62,9 @@ const LoginPage = (props) => {
                     <span>Don't have an account? </span>
                     <Link to='/register'>Register</Link>
                 </div>
+                <div className="mt-2 text-center">
+                    <Link to='/password-reset'>Forgot password?</Link>
+                </div>
             </div>
         </div>
     );
