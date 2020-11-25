@@ -30,9 +30,9 @@ const VerifyEmailPage = (props) => {
             });
     }
 
-    const Spinner = () => <div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div>;
-    const SuccessMessage = () => <div class="alert alert-success" role="alert">Verification email sent!</div>;
-    const ErrorMessage = () => <div class="alert alert-danger" role="alert">Unable to send email. Please try again later.</div>;
+    const Spinner = () => <div className="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div>;
+    const SuccessMessage = () => <div className="alert alert-success" role="alert">Verification email sent!</div>;
+    const ErrorMessage = () => <div className="alert alert-danger" role="alert">Unable to send email. Please try again later.</div>;
 
     return (
         <div className="container vh-100 d-flex justify-content-center align-items-center">
