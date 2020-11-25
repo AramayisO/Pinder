@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { AuthService, AuthContext} from './auth'
+import { AuthService, AuthContext } from './auth';
+import { UserService, UserContext } from './user';
 import { BrowserRouter } from 'react-router-dom';
 
 const firebaseConfig = {
@@ -24,9 +25,11 @@ firebase.initializeApp(firebaseConfig);
 ReactDOM.render(
   <React.StrictMode>
     <AuthContext.Provider value={new AuthService()}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <UserContext.Provider value={new UserService()}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </UserContext.Provider>
     </AuthContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
