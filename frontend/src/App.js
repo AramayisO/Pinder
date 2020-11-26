@@ -3,9 +3,9 @@ import './App.css';
 
 import { AuthRoute } from './common';
 import LoginPage from './Login/LoginPage';
+import PasswordResetPage from './PasswordReset';
 
 const Home = () => (<h1>Welcome to Pinder</h1>);
-const PasswordResetPage = () => (<p>Password reset page</p>)
 
 function App() {
 
