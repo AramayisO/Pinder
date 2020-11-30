@@ -1,35 +1,88 @@
 import firebase from 'firebase';
 
-// import app from 'firebase/app';
-
-const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
-};
-
 class AuthService {
+    
     constructor() {
-        firebase.initializeApp(firebaseConfig);
+        firebase.auth()
+            .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+            .then(() => console.log('Auth: persistence = LOCAL'))
+            .catch((error) => console.log(error));
     }
 
-    createUserWithEmailAndPassword = (email, password) => {
-        return firebase.auth().createUserWithEmailAndPassword(email, password);
+    /**
+     * Creates a new user account with the specified email and password.
+     * 
+     * On successful creation of the user account, this user will be signed in
+     * to the application and a verification email will be sent to the users
+     * email address.
+     * 
+     * @param {string} email - The user's email address.
+     * @param {string} password - The user's chosen password.
+     * 
+     * @returns If successful, returns a resolved Promise with the value of
+     *          the firebase.User created. Otherwise, returns a rejected
+     *          Promise with a value of firebase.auth.Error. 
+     */
+    createUserWithEmailAndPassword = async (email, password) => {
+        return firebase.auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                let user = userCredential.user;
+                this.sendEmailVerification(user);
+                return user;
+            });
     }
 
-    signInWithEmailAndPassword = (email, password) => {
-        return firebase.auth().signInWithEmailAndPassword(email, password);
+    /**
+     * Signs in user with the specified email and password.
+     * 
+     * @param {string} email - The user's email.
+     * @param {string} password - The user's password.
+     * 
+     * @returns If successful, returns a resolved Promise with the value of
+     *          firebase.User. Otherwise, returns a rejected Promise with a
+     *          value of firebase.auth.Error.
+     */
+    signInWithEmailAndPassword = async (email, password) => {
+        return firebase.auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((userCredential) => userCredential.user);
     }
 
+    /**
+     * Sends a verification email to a user.
+     * 
+     * @param {firebase.User} user - The user with the email to be verified.
+     * 
+     * @returns If successful, returns a Promise<void>. Otherwise, returns a
+     *          Promise<firebase.auth.Error>.
+     */
+    sendEmailVerification = async (user) => {
+        return user.sendEmailVerification({url: 'http://localhost:3000'});
+    }
+
+    /**
+     * Sends a password reset email to the specified email.
+     * 
+     * @param {string} email - The email address with the password to be reset.
+     * 
+     * @returns If successful, returns a Promise<void>. Otherwise, returns a
+     *          Promise<firebase.auth.Error>. 
+     */
+    sendPasswordResetEmail = async (email) => {
+        return firebase.auth().sendPasswordResetEmail(email, {url: 'http://localhost:3000'});
+    }
+
+    /**
+     * Signs out the currently signed-in user.
+     */
     signOut = () => {
         return firebase.auth().signOut();
     }
 
+    /**
+     * Returns the currently signed-in user (null if no signed in user).
+     */
     getCurrentUser = () => {
         return firebase.auth().currentUser;
     }

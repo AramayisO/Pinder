@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../auth';
+import { UserContext } from '../user';
 
 import LoginForm from './LoginForm'; 
 import logo from '../logo.svg';
@@ -11,6 +12,8 @@ const LoginPage = (props) => {
 
     // Subscirbe to auth context to use auth service.
     const auth = useContext(AuthContext);
+    // Subscribe to user context to use the user service.
+    const userService = useContext(UserContext);
     // The useHistory hook gives access to the `history` instance that
     // can be used to navigate to different URLs.
     const history = useHistory()
@@ -26,7 +29,19 @@ const LoginPage = (props) => {
             setError('Password required.');
         } else {
             auth.signInWithEmailAndPassword(email, password)
-                .then(user => history.push('/'))
+                .then(user =>{
+                    // Get and save the users current geolocation so it can be
+                    // used to calculate distance from potential matches.
+                    navigator.geolocation.getCurrentPosition((position) => {
+                        userService.setUserData(user.uid, {coords: position.coords})
+                    }, (error) => {
+                        // TODO: need to handle the case if user doesn't allow
+                        //       location services to be used.
+                        console.log(error);
+                    });
+                    userService.getUserData(user.uid).then(user => console.log(user));
+                    history.push('/')
+                })
                 .catch(error => setError('Invalid email or password.'));
         }
     }
@@ -46,6 +61,9 @@ const LoginPage = (props) => {
                 <div className="mt-4 text-center">
                     <span>Don't have an account? </span>
                     <Link to='/register'>Register</Link>
+                </div>
+                <div className="mt-2 text-center">
+                    <Link to='/password-reset'>Forgot password?</Link>
                 </div>
             </div>
         </div>
