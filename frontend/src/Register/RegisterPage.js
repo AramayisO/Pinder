@@ -11,9 +11,9 @@ function RegisterPage(props) {
     const [error, setError] = useState('');
 
     const handleRegister = (email, password, passwordConfirm) => {
-        if (isEmailValid(email)) {
+        if (!isEmailValid(email)) {
             setError('Valid email required.');
-            console.log("Invalid Password");
+            console.log("Invalid email");
         }
         else if (!password) {
             setError('Password required');

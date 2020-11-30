@@ -5,13 +5,13 @@ const RegisterForm = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
-    const [street, setStreet] = useState('');
+/*     const [street, setStreet] = useState('');
     const [city, setCity] = useState('');
     const [usState, setUsState] = useState('');
-    const [zip, setZip] = useState('');
+    const [zip, setZip] = useState(''); */
 
     const handleSubmit = (event) => {
-        event.prevetDefault();
+        event.preventDefault();
         props.onSubmit(email, password, passwordConfirm);
     }
 
@@ -48,7 +48,7 @@ const RegisterForm = (props) => {
                         placeholder="Confirm password"
                     />
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="street">Street address</label>
                     <input
                         type="text"
@@ -84,7 +84,7 @@ const RegisterForm = (props) => {
                         onChange={e => setZip(e.target.value)}
                         placeholder="zip"
                     />
-                </div>
+                </div> */}
                 {props.error &&
                 <div className="alert alert-danger" role="alert">
                     {props.error}
