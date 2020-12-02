@@ -2,15 +2,17 @@ import RegisterForm from './RegisterForm';
 import { Link, useHistory } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../auth';
+import { UserContext } from '../user';
 import logo from '../logo.svg';
 
 function RegisterPage(props) {
 
     const auth = useContext(AuthContext);
+    const userDB = useContext(UserContext);
     const history = useHistory();
     const [error, setError] = useState('');
 
-    const handleRegister = (email, password, passwordConfirm) => {
+    const handleRegister = (email, password, passwordConfirm, name) => {
         if (!isEmailValid(email)) {
             setError('Valid email required.');
             console.log("Invalid email");
@@ -23,6 +25,7 @@ function RegisterPage(props) {
             console.log("passwords don't match");
         } else {
             auth.createUserWithEmailAndPassword(email, password)
+                .then((user) => userDB.setUserData(user.uid, {email:email, name:name}))
                 .then(user => history.push('/'))
                 .catch(error => {
                     setError(`Error:${error.message}`);

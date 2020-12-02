@@ -5,6 +5,7 @@ const RegisterForm = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
+    const [name, setName] = useState('');
 /*     const [street, setStreet] = useState('');
     const [city, setCity] = useState('');
     const [usState, setUsState] = useState('');
@@ -12,7 +13,7 @@ const RegisterForm = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.onSubmit(email, password, passwordConfirm);
+        props.onSubmit(email, password, passwordConfirm, name);
     }
 
     return (
@@ -46,6 +47,16 @@ const RegisterForm = (props) => {
                         value={passwordConfirm}
                         onChange = {e=> setPasswordConfirm(e.target.value)}
                         placeholder="Confirm password"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        value={name}
+                        onChange = {e=> setName(e.target.value)}
+                        placeholder="Your Name"
                     />
                 </div>
                 {/* <div className="form-group">
