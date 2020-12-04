@@ -1,16 +1,19 @@
 import firebase from 'firebase';
+import { v4 as uuidv4 } from 'uuid';
 
 class ProfileService {
 
     constructor() {
         this.users = firebase.firestore().collection('users');
         this.profiles = firebase.firestore().collection('profiles');
+        this.images = firebase.storage().ref().child('images');
     }
 
     /**
      * Creates a new pet profile and saves it in the database.
      * 
-     * @param {string} uid - The unique user id of the firebase.User object. 
+     * @param {string} uid     - The unique user id of the firebase.User object. 
+     * @param {File}   image   - The image file uploaded by a user.
      * @param {Object} profile - An object whose fields contain the data to be set e.g.
      *                              profile = {
      *                                  name: "Fluffy",
@@ -24,14 +27,32 @@ class ProfileService {
      * @returns On success, returns a resolved Promise with no value. Otherwise,
      *          returns a rejected Promise with an error value.
      */
-    createProfile = async (uid, profile) => {
+    create = async (uid, image, profile) => {
+        // Make sure that a user with the specified uid exists first.
         let user = await this.users.doc(uid).get()
 
         if (!user.exists) {
             return Promise.reject(`A user with uid = ${uid} does not exist.`);
         }
 
-        return this.profiles.doc().set({ createdBy: uid, ...profile }, { merge: true });
+        // Create a new image reference with a unique id as the file name.
+        // A UUID v4 is effectively guaranteed to be universally unique.
+        let imageRef = this.images.child(uuidv4());
+
+        // On successful upload, this will be an http url that can be used
+        // to download the image.
+        let imageUrl = null;
+
+        // Upload the image to storage.
+        try {
+            await imageRef.put(image)
+            imageUrl = await imageRef.getDownloadURL();
+        } catch (error) {
+            return Promise.reject('Unable to upload image file.');
+        }
+
+        // Save the profile to firestore.
+        return this.profiles.doc().set({createdBy: uid, imageUrl, ...profile});
     }
 
     /**
@@ -42,7 +63,7 @@ class ProfileService {
      * @returns On success, returns a resolved Promise with the profile object.
      *          Otherwise, returns a rejected Promise with an error. 
      */
-    getProfile = async (id) => {
+    getByProfileId = async (id) => {
         return this.profiles.doc(id).get()
             .then(docSnapshot => ({ id: docSnapshot.id, ...docSnapshot.data() }));
     }
@@ -55,7 +76,7 @@ class ProfileService {
      * @returns On success, returns a resovled Promise with an array of profile
      *          objects. Otherwise, returns a rejected Promise with an error.
      */
-    getProfilesCreatedByUser = async (uid) => {
+    getByUserId = async (uid) => {
         let user = await this.users.doc(uid).get();
 
         if (!user.exists) {
