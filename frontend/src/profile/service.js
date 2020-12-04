@@ -65,7 +65,12 @@ class ProfileService {
         return this.profiles
             .where('createdBy', '==', uid)
             .get()
-            .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()));
+            .then(querySnapshot => (
+                querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+            ));
     }
 
 };
