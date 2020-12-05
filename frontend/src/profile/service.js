@@ -21,7 +21,7 @@ class ProfileService {
      *                                  gender: "male",
      *                                  age: 1,
      *                                  fixed: true,
-     *                                  quote: "I'm fluffy, smart, and want ALL of your attention.",
+     *                                  description: "I'm fluffy, smart, and want ALL of your attention.",
      *                              }
      * 
      * @returns On success, returns a resolved Promise with no value. Otherwise,

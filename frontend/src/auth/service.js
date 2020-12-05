@@ -5,7 +5,7 @@ class AuthService {
     constructor() {
         firebase.auth()
             .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-            .then(() => console.log('Auth: persistence = LOCAL'))
+            .then(() => { /* Nothing to do */ })
             .catch((error) => console.log(error));
     }
 
