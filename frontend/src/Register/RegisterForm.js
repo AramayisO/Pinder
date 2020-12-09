@@ -19,6 +19,16 @@ const RegisterForm = (props) => {
     return (
         <div className="container">
             <form onSubmit={handleSubmit}>
+            <div className="form-group">
+                    <label htmlFor="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        value={name}
+                        onChange = {e=> setName(e.target.value)}
+                        placeholder="Your Name"
+                    />
+                </div>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
                     <input
@@ -47,16 +57,6 @@ const RegisterForm = (props) => {
                         value={passwordConfirm}
                         onChange = {e=> setPasswordConfirm(e.target.value)}
                         placeholder="Confirm password"
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        value={name}
-                        onChange = {e=> setName(e.target.value)}
-                        placeholder="Your Name"
                     />
                 </div>
                 {/* <div className="form-group">
