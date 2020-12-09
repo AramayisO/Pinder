@@ -1,0 +1,46 @@
+<html>
+<head>
+    <body>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <div id="profile-container">
+           <image id="profileImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3D6QWJNQWHCBHWXyhUXCRuSYwvaOt6OVqhA&usqp=CAU" />
+        </div>
+        <input id="imageUpload" type="file" 
+               name="profile_photo" placeholder="Photo" required="" capture>
+  
+
+<div id="form_name">
+      
+       <form name="form" >
+       <div id="errorBox"></div>
+        <input type="text" name="Name" value="" placeholder=" Name"  class="input_name" >
+        
+         
+      </div>
+      <div id="breed_form">
+        <input type="text" name="Breed" value=""  placeholder="Breed" class="input_breed">
+      </div>
+      <div id="gender_form">
+        <input type="text" name="entergender" value=""  placeholder="Gender" class="input_gender">
+      </div>
+      <div id="age_form">
+        <input type="age" name="Age" value=""  placeholder="Age" class="input_age">
+      </div>
+        <p>Mixed</p>
+      
+      <div id="radio_button">
+        <input type="radio" name="radiobutton" value="Female">
+        <label >Yes</label>
+        &nbsp;&nbsp;&nbsp;
+        <input type="radio" name="radiobutton" value="Male">
+        <label >No</label>
+      </div>
+        <div id="quote_form">
+        <input type="quote" name="quote" value=""  placeholder="Quote" class="input_quote">
+      </div>
+       
+<button onclick="submit();" href="javascript:;">Submit</button> 
+</body>
+        </head>
+</html>
