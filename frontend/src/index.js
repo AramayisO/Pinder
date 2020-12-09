@@ -7,6 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthService, AuthContext } from './auth';
 import { UserService, UserContext } from './user';
+import { ProfileService, ProfileContext } from './profile';
 import { BrowserRouter } from 'react-router-dom';
 
 const firebaseConfig = {
@@ -26,9 +27,11 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthContext.Provider value={new AuthService()}>
       <UserContext.Provider value={new UserService()}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <ProfileContext.Provider value={new ProfileService()}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ProfileContext.Provider>
       </UserContext.Provider>
     </AuthContext.Provider>
   </React.StrictMode>,

@@ -39,7 +39,6 @@ const LoginPage = (props) => {
                         //       location services to be used.
                         console.log(error);
                     });
-                    userService.getUserData(user.uid).then(user => console.log(user));
                     history.push('/')
                 })
                 .catch(error => setError('Invalid email or password.'));
