@@ -17,7 +17,7 @@ const PasswordResetPage = (props) => {
         <>
             <p className="card-text text-center">Enter your email and we'll send you a link to reset your password.</p>
             <PasswordResetForm onSubmit={sendResetEmail}/>
-            <div className="text-center mt-4">
+            <div className="text-center mt-3">
                 <Link to="/register">Create an account</Link>
             </div>
             <div className="text-center mt-2">
