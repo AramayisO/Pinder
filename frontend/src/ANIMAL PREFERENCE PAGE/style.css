@@ -95,16 +95,16 @@
     position: fixed;
     top: 0;
     left: 0;
+    height: 10vh;
+    min-height: 50px;
     width: 100%;
-    background: var(--main-pink);
+    background:  #CFE2F3;;
     
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
-    z-index: 10;
   }
   
   .nav-list {
     display: flex;
-    margin-right: 105rem;
+    margin-left: 105rem;
   }
   
   @media (max-width: 28.75em) {
@@ -130,12 +130,9 @@
   a:hover {
     background-color: white;
   }
-    .pic {
-    width: 100%;
-    mix-blend-mode: multiply;
-  }
+   
   
-  /* Welcome section */
+  /* selection section */
   
   .welcome-section {
     display: flex;
