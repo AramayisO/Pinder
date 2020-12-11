@@ -3,6 +3,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../auth';
 import { UserContext } from '../user';
 
+import Container from 'react-bootstrap/Container'
+
 import LoginForm from './LoginForm'; 
 import logo from '../logo.svg';
 
@@ -12,11 +14,14 @@ const LoginPage = (props) => {
 
     // Subscirbe to auth context to use auth service.
     const auth = useContext(AuthContext);
+
     // Subscribe to user context to use the user service.
     const userService = useContext(UserContext);
+
     // The useHistory hook gives access to the `history` instance that
     // can be used to navigate to different URLs.
     const history = useHistory()
+
     // Use this state to notify the form if login was not successful.
     const [error, setError] = useState('');
 
@@ -50,22 +55,20 @@ const LoginPage = (props) => {
     );
 
     return (
-        <div className="container vh-100 d-flex align-items-center">
-            <div className="w-100">
-                <div className="text-center">
-                    <img src={logo} width="200" alt="Pinder logo" />
-                    <h1>Login</h1>
-                </div>
-                <LoginForm onSubmit={handleLogin} error={error} />
-                <div className="mt-4 text-center">
-                    <span>Don't have an account? </span>
-                    <Link to='/register'>Register</Link>
-                </div>
-                <div className="mt-2 text-center">
-                    <Link to='/password-reset'>Forgot password?</Link>
-                </div>
+        <Container fluid="sm" className="vh-100 d-flex flex-column justify-content-center">
+            <div className="text-center">
+                <img src={logo} width="200" alt="Pinder logo" />
+                <h1>Login</h1>
             </div>
-        </div>
+            <LoginForm onSubmit={handleLogin} error={error} />
+            <div className="mt-4 text-center">
+                <span>Don't have an account? </span>
+                <Link to='/register'>Register</Link>
+            </div>
+            <div className="mt-2 text-center">
+                <Link to='/password-reset'>Forgot password?</Link>
+            </div>
+        </Container>
     );
 };
 

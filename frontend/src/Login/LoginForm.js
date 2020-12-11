@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const LoginForm = (props) => {
 
@@ -13,24 +16,26 @@ const LoginForm = (props) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
-            </div>
-            <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" className="form-control" value={password} onChange={e => setPassword(e.target.value)}/>
-            </div>
+        <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formGroupEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" onChange={e => setEmail(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formGroupPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" onChange={e => setPassword(e.target.value)}/>
+            </Form.Group>
             {props.error &&
-                <div className="alert alert-danger" role="alert">
+                <Alert variant="danger">
                     {props.error}
-                </div>
+                </Alert>
             }
             <div className="text-center">
-                <button type="submit" className="btn btn-primary px-4">Login</button>
+                <Button type="submit" className="px-4">
+                    Login
+                </Button>
             </div>
-        </form>
+        </Form>
     );
 };
 
