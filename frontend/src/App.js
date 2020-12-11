@@ -5,10 +5,13 @@ import { AuthRoute } from './common';
 import LoginPage from './Login/LoginPage';
 import RegisterPage from './Register/RegisterPage'
 import PasswordResetPage from './PasswordReset';
+import NavPag from './Navigation';
+import LogoutPage from './Logout';
 
 import React, { useContext, useState } from 'react';
 import { AuthContext } from './auth';
 import { ProfileContext } from './profile';
+import NavPage from './Navigation';
 
 
 class ProfilesList extends React.Component {
@@ -211,6 +214,7 @@ const CreateProfile = () => {
 
 const Home = () => (
     <>
+        <NavPage />
         <h1>Welcome to Pinder</h1>
         <UserGreeting />
 
@@ -256,7 +260,7 @@ function App() {
             <Route path='/login' component={LoginPage} />
             <Route path='/register' component={RegisterPage} />
             <Route path='/password-reset' component={PasswordResetPage} />
-            <Route path='/logout' component={Logout} />
+            <Route path='/logout' component={LogoutPage} />
         </Switch>
     );
 }
