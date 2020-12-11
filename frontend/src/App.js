@@ -256,6 +256,7 @@ function App() {
             <Route path='/login' component={LoginPage} />
             <Route path='/register' component={RegisterPage} />
             <Route path='/password-reset' component={PasswordResetPage} />
+            <Route path='/logout' component={Logout} />
         </Switch>
     );
 }
