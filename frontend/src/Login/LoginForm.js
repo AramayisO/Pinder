@@ -19,11 +19,19 @@ const LoginForm = (props) => {
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formGroupEmail">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" onChange={e => setEmail(e.target.value)} />
+                <Form.Control 
+                    type="email" 
+                    className="LoginForm-input" 
+                    onChange={e => setEmail(e.target.value)}
+                />
             </Form.Group>
             <Form.Group controlId="formGroupPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" onChange={e => setPassword(e.target.value)}/>
+                <Form.Control
+                    type="password"
+                    className="LoginForm-input"
+                    onChange={e => setPassword(e.target.value)}
+                />
             </Form.Group>
             {props.error &&
                 <Alert variant="danger">
@@ -31,7 +39,7 @@ const LoginForm = (props) => {
                 </Alert>
             }
             <div className="text-center">
-                <Button type="submit" className="px-4">
+                <Button type="submit" className="px-4 LoginForm-button">
                     Login
                 </Button>
             </div>
