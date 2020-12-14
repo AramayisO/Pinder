@@ -5,13 +5,13 @@ import { AuthRoute } from './common';
 import LoginPage from './Login/LoginPage';
 import RegisterPage from './Register/RegisterPage'
 import PasswordResetPage from './PasswordReset';
-import NavPag from './Navigation';
+import NavPage from './Navigation';
 import LogoutPage from './Logout';
 
 import React, { useContext, useState } from 'react';
 import { AuthContext } from './auth';
+import { UserContext } from './user';
 import { ProfileContext } from './profile';
-import NavPage from './Navigation';
 
 
 class ProfilesList extends React.Component {
@@ -88,11 +88,13 @@ const ProfileDetailPage = () => {
 const UserGreeting = () => {
 
     const authService = useContext(AuthContext);
+    const userService = useContext(UserContext);
 
     const user = authService.getCurrentUser();
-
+    const name = userService.getUserData(user.uid).name;
+    
     return (
-        <h1>Hi user { user.id }</h1>
+        <h1>Hi user { name }</h1>
     );
 };
 

@@ -8,8 +8,9 @@ const LogoutPage = (props) => {
     const [error, setError] = useState('');
 
     useEffect(() => {
+        console.log("Logging out");
         auth.signOut()
-            .then(history.push('/'))
+            .then(history.push('/login'))
             .catch(error => setError("Error logging out"));
         });
 
