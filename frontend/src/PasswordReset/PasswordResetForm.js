@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import './password_reset.css'
 
 const PasswordResetForm = (props) => {
     const [email, setEmail] = useState('');
@@ -23,27 +26,28 @@ const PasswordResetForm = (props) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} noValidate>
-            <div className="form-group">
-                <input 
-                    type="email" 
-                    id="email" 
-                    className={`form-control ${emailError ? 'is-invalid' : ''}`} 
+        <Form onSubmit={handleSubmit} noValidate>
+            <Form.Group controlId="formGroupEmail">
+                <Form.Control
+                    type="email"
+                    className="PasswordReset-input"
                     placeholder="Email address"
-                    aria-describedby="email-validation-feedback"
-                    value={email} 
+                    value={email}
+                    isInvalid={emailError}
                     onChange={e => setEmail(e.target.value)}
                 />
-                {emailError && (
-                    <div id="email-validation-feedback" class="invalid-feedback">
+                {emailError &&
+                    <Form.Control.Feedback type="invalid">
                         {emailError}
-                    </div>
-                )}
-            </div>
+                    </Form.Control.Feedback>
+                }
+            </Form.Group>
             <div className="text-center">
-                <button type="submit" className="btn btn-primary px-4">Send password reset email</button>
+                <Button type="submit" className="px-4 PasswordReset-button">
+                    Send password reset email
+                </Button>
             </div>
-        </form>
+        </Form>
     );
 };
 

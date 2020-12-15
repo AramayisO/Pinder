@@ -94,6 +94,79 @@ class ProfileService {
             ));
     }
 
+    /**
+     * Add a new profile match for the user.
+     * 
+     * @param {string} uid - The users id. 
+     * @param {string} pid - The profiles id.
+     */
+    addMatch = async (uid, pid) => {
+        let user = await this.users.doc(uid).get();
+        let profile = await this.profiles.doc(pid).get();
+
+        if (!user.exists || !profile.exists) {
+            return Promise.reject('User or profile does not exist');
+        }
+
+        user = user.data();
+        user.matches.push(pid)
+
+        return this.users.doc(uid).set({...user});
+    }
+
+    /**
+     * Get all profiles user has matched with.
+     * 
+     * @param {string} uid - The users id. 
+     */
+    getMatches = async (uid) => {
+        let user = await this.users.doc(uid).get();
+
+        if (!user.exists) {
+            return Promise.reject(`User ${uid} does not exist`);
+        }
+
+        user = user.data();
+
+        return this.profiles
+            .where(firebase.firestore.FieldPath.documentId(), 'in', user.matches)
+            .get()
+            .then(querySnapshot => (
+                querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+            ));
+    }
+
+    /**
+     * Get profile suggesstions that can be potential matches.
+     * 
+     * TODO: Implement a matching algorithm. Right now, we are just returning any
+     *       profile that was not created by the user and that the user has not 
+     *       already matched with.
+     *  
+     * @param {string} uid - The users id. 
+     */
+    getMatchSuggestions = async (uid) => {
+        let user = await this.users.doc(uid).get();
+
+        if (!user.exists) {
+            return Promise.reject(`User ${uid} does not exist`);
+        }
+
+        user = user.data();
+        
+        return this.profiles
+            .where(firebase.firestore.FieldPath.documentId(), 'not-in', user.matches)
+            .get()
+            .then(querySnapshot => querySnapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            })))
+            .then(profiles => profiles.filter(profile => profile.createdBy !== uid))
+    }
+
 };
 
 export default ProfileService;

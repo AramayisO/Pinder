@@ -1,0 +1,127 @@
+body {
+  text-align: center;
+  padding-top: 60px;
+  background: #CFE2F3;
+}
+
+.profile-picture-upload {
+  display: inline;
+  
+}
+
+.imagePreview {
+  vertical-align: middle;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-right: 8px;
+  
+}
+
+.hidden {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  left: -999999px;
+}
+
+.action-button {
+  border: 5px solid black;
+  background: #D5A6BD;
+  padding: 8px;
+  cursor: pointer;
+  outline: 0;
+  border-radius: 10px;
+  
+  &.mode-upload {
+    color: #004085;
+    border-color: #b8daff;
+    background-color: #cce5ff;
+  }
+  
+  &.mode-remove {
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    background-color: #f8d7da;
+  }
+}
+body{
+ font-family: sans-serif;
+ }
+#container{
+ width:550px;
+ background-color:rgba(250,250,252,.9);
+ margin:auto;
+ margin-top:10px;
+ margin-bottom:10px;
+ box-shadow:0 0 3px #999;
+ }
+#container_body{
+ padding:20px;
+ }
+.form_title{
+ font-size:35px;
+ color:#141823;
+ text-align:center;
+ padding:10px;
+ font-weight:normal;
+ }
+
+#form_name{
+ clear:both;
+ padding:15px 0 10px 0px;
+ }
+
+.input_name{
+ width:434px;
+ padding:5px;
+ font-size:18px;
+  
+ }
+#breed_form{
+ clear:both;
+ padding:15px 0 10px 0px;
+ }
+.input_breed{
+ width:434px;
+ padding:5px;
+ font-size:18px;
+ }
+#gender_form{
+ padding:10px 0 10px 0px;
+ }
+.input_gender{
+ width:434px;
+ padding:5px;
+ font-size:18px;
+ }
+#age_form{
+ padding:10px 0 10px 0px;
+ }
+.input_age{
+ width:434px;
+ padding:5px;
+ font-size:18px;
+ }
+.input_quote{
+ width:650px;
+ padding:5px;
+ font-size:25px;
+ }
+select{
+ padding:5px;
+ }
+
+#radio_button{
+ padding:10px 0 0 0;
+ }
+#sign_user{
+ font-size:14px;
+ color:#FFF;
+ text-align:center;
+ background-color:#3B5998;
+ padding:10px;
+ margin-top:10px;
+ cursor: pointer;
+ }
+
