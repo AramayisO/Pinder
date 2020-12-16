@@ -25,7 +25,7 @@ function RegisterPage(props) {
             console.log("passwords don't match");
         } else {
             auth.createUserWithEmailAndPassword(email, password)
-                .then((user) => userDB.setUserData(user.uid, {email:email, name:name}))
+                .then((user) => userDB.setUserData(user.uid, {email:email, name:name, matches:[]}))
                 .then(user => history.push('/'))
                 .catch(error => {
                     setError(`Error:${error.message}`);

@@ -9,6 +9,7 @@ import PasswordResetPage from './PasswordReset';
 import PetMatchesPage from './Matches/PetMatchesPage';
 import PetDetailsPage from './Matches/PetDetailsPage';
 import LogoutPage from './Logout';
+import NavPage from './Navigation';
 
 function App() {
 
