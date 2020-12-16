@@ -62,7 +62,7 @@ const LoginPage = (props) => {
     return (
         <Container fluid="sm" className="vh-100 d-flex flex-column justify-content-center">
             <div className="text-center">
-                <img src={logo} width="200" alt="Pinder logo" />
+                <img src={`${process.env.PUBLIC_URL}/logo.png`} width="200" alt="Pinder logo" />
                 <h1>Login</h1>
             </div>
             <LoginForm onSubmit={handleLogin} error={error} />
