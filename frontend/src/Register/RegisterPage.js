@@ -25,7 +25,7 @@ function RegisterPage(props) {
             console.log("passwords don't match");
         } else {
             auth.createUserWithEmailAndPassword(email, password)
-                .then((user) => userDB.setUserData(user.uid, {email:email, name:name}))
+                .then((user) => userDB.setUserData(user.uid, {email:email, name:name, matches: []}))
                 .then(user => history.push('/'))
                 .catch(error => {
                     setError(`Error:${error.message}`);
@@ -41,7 +41,7 @@ function RegisterPage(props) {
         <div className="container vh-100 d-flex align-items-center">
             <div className="w-100">
                 <div className="text-center">
-                    <img src={logo} width="200" alt="Pinder logo" />
+                    <img src={`${process.env.PUBLIC_URL}/logo.png`} width="200" alt="Pinder logo" />
                     <h1>Register</h1>
                 </div>
                 <RegisterForm onSubmit={handleRegister} error={error} />

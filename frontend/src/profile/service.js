@@ -128,15 +128,17 @@ class ProfileService {
 
         user = user.data();
 
-        return this.profiles
-            .where(firebase.firestore.FieldPath.documentId(), 'in', user.matches)
-            .get()
-            .then(querySnapshot => (
-                querySnapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }))
-            ));
+        return user.matches.length
+            ? this.profiles
+                .where(firebase.firestore.FieldPath.documentId(), 'in', user.matches)
+                .get()
+                .then(querySnapshot => (
+                    querySnapshot.docs.map(doc => ({
+                        id: doc.id,
+                        ...doc.data()
+                    }))
+                ))
+            : [];
     }
 
     /**
