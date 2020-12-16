@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { AuthContext } from '../auth';
 import { UserContext } from '../user';
 
@@ -20,7 +20,8 @@ const LoginPage = (props) => {
 
     // The useHistory hook gives access to the `history` instance that
     // can be used to navigate to different URLs.
-    const history = useHistory()
+    const history = useHistory();
+    const location = useLocation();
 
     // Use this state to notify the form if login was not successful.
     const [error, setError] = useState('');
@@ -44,7 +45,11 @@ const LoginPage = (props) => {
                         //       location services to be used.
                         console.log(error);
                     });
-                    history.push('/')
+                    if (location.state && location.state.referrer) {
+                        history.push(location.state.referrer.pathname);
+                    } else {
+                        history.push('/')
+                    }
                 })
                 .catch(error => setError('Invalid email or password.'));
         }
