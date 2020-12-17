@@ -159,14 +159,23 @@ class ProfileService {
 
         user = user.data();
         
-        return this.profiles
-            .where(firebase.firestore.FieldPath.documentId(), 'not-in', user.matches)
-            .get()
-            .then(querySnapshot => querySnapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            })))
-            .then(profiles => profiles.filter(profile => profile.createdBy !== uid))
+        return user.matches.length
+            ? this.profiles
+                .where(firebase.firestore.FieldPath.documentId(), 'not-in', user.matches)
+                .get()
+                .then(querySnapshot => querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                })))
+                .then(profiles => profiles.filter(profile => profile.createdBy !== uid))
+            : this.profiles
+                .where('name', '!=', '')
+                .get()
+                .then(querySnapshot => querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                })))
+                .then(profiles => profiles.filter(profile => profile.createdBy !== uid))
     }
 
 };
