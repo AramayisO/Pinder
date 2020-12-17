@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../auth';
 import { ProfileContext } from '../profile';
 import './PetMatches.css';
+import NavPage from '../Navigation';
 
 class ProfilesList extends React.Component {
 
@@ -28,6 +29,7 @@ class ProfilesList extends React.Component {
 
         return (
             <div className='container'>
+                <NavPage />
                 <p className='h1'>Your Matches</p>
                 <hr />
                 {profiles.length
