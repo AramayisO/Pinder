@@ -8,7 +8,7 @@ import RegisterPage from './Register/RegisterPage'
 import PasswordResetPage from './PasswordReset';
 import PetMatchesPage from './Matches/PetMatchesPage';
 import PetDetailsPage from './Matches/PetDetailsPage';
-
+import LogoutPage from './Logout';
 
 function App() {
 
@@ -19,6 +19,7 @@ function App() {
             <Route path='/login' component={LoginPage} />
             <Route path='/register' component={RegisterPage} />
             <Route path='/password-reset' component={PasswordResetPage} />
+            <Route path='/logout' component={LogoutPage} />
         </Switch>
     );
 }

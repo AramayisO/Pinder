@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.collapse  * {
+    margin: 0px 15px;
+}
+
+.navbar * {
+    color: #D5A6BD;
+    font-family: 'Pacifico', cursive;
+}

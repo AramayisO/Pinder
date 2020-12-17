@@ -4,6 +4,7 @@ import {  useRouteMatch } from 'react-router-dom';
 import { AuthContext } from '../auth';
 import { ProfileContext } from '../profile';
 import './PetMatches.css';
+import NavPage from '../Navigation';
 
 
 const PetDetailPage = () => {
@@ -22,7 +23,9 @@ const PetDetailPage = () => {
         .then(profileObj => setProfile(profileObj))
         .catch(error => console.log(error));
     return (
-        <>{profile ? (
+        <>
+        <NavPage />
+        {profile ? (
             <div className="container d-flex justify-content-center align-items-center vh-100">
                 <div className="card shadow" style={{ width: '18rem' }}>
                     <img className="card-img-top" src={profile.imageUrl} alt="" />
