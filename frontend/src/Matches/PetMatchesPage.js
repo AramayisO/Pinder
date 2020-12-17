@@ -29,6 +29,7 @@ class ProfilesList extends React.Component {
 
         return (
             <div className='container'>
+                <NavPage />
                 <p className='h1'>Your Matches</p>
                 <hr />
                 {profiles.length
