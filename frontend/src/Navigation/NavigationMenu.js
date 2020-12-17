@@ -11,7 +11,7 @@ function NavPage(props) {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Link to="/">Dashboard</Link>
-                <Link to="/find?">Find a Furry Friend</Link>
+                <Link to="/find">Find a Furry Friend</Link>
                 <Link to="/create">Find a Human</Link>
                 <Link to="/logout">Logout</Link>
             </Navbar.Collapse>

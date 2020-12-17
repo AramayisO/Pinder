@@ -3,6 +3,7 @@ import {  useRouteMatch } from 'react-router-dom';
 import { AuthContext } from '../auth';
 import { ProfileContext } from '../profile';
 import './PetMatches.css';
+import NavPage from '../Navigation';
 
 
 const PetDetailPage = () => {
@@ -21,7 +22,9 @@ const PetDetailPage = () => {
         .then(profileObj => setProfile(profileObj))
         .catch(error => console.log(error));
     return (
-        <>{profile ? (
+        <>
+        <NavPage />
+        {profile ? (
             <div className="detail-card">
                 <img className="detail-image" src={profile.imageUrl} alt="" />
                 <div className="detail-card-content">
