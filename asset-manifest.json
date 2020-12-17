@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Pinder/static/css/main.fd401a07.chunk.css",
-    "main.js": "/Pinder/static/js/main.e08a8ad9.chunk.js",
-    "main.js.map": "/Pinder/static/js/main.e08a8ad9.chunk.js.map",
+    "main.js": "/Pinder/static/js/main.0791e062.chunk.js",
+    "main.js.map": "/Pinder/static/js/main.0791e062.chunk.js.map",
     "runtime-main.js": "/Pinder/static/js/runtime-main.4ea4df0f.js",
     "runtime-main.js.map": "/Pinder/static/js/runtime-main.4ea4df0f.js.map",
     "static/css/2.1a02f21c.chunk.css": "/Pinder/static/css/2.1a02f21c.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.1a02f21c.chunk.css",
     "static/js/2.b52765b6.chunk.js",
     "static/css/main.fd401a07.chunk.css",
-    "static/js/main.e08a8ad9.chunk.js"
+    "static/js/main.0791e062.chunk.js"
   ]
 }
