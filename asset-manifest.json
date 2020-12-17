@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/aramayiso.github.io/Pinder/static/css/main.fd401a07.chunk.css",
-    "main.js": "/aramayiso.github.io/Pinder/static/js/main.bb412c16.chunk.js",
-    "main.js.map": "/aramayiso.github.io/Pinder/static/js/main.bb412c16.chunk.js.map",
-    "runtime-main.js": "/aramayiso.github.io/Pinder/static/js/runtime-main.d781f170.js",
-    "runtime-main.js.map": "/aramayiso.github.io/Pinder/static/js/runtime-main.d781f170.js.map",
-    "static/css/2.1a02f21c.chunk.css": "/aramayiso.github.io/Pinder/static/css/2.1a02f21c.chunk.css",
-    "static/js/2.f5fcf1c6.chunk.js": "/aramayiso.github.io/Pinder/static/js/2.f5fcf1c6.chunk.js",
-    "static/js/2.f5fcf1c6.chunk.js.map": "/aramayiso.github.io/Pinder/static/js/2.f5fcf1c6.chunk.js.map",
-    "static/js/3.9ac43d7d.chunk.js": "/aramayiso.github.io/Pinder/static/js/3.9ac43d7d.chunk.js",
-    "static/js/3.9ac43d7d.chunk.js.map": "/aramayiso.github.io/Pinder/static/js/3.9ac43d7d.chunk.js.map",
-    "index.html": "/aramayiso.github.io/Pinder/index.html",
-    "static/css/2.1a02f21c.chunk.css.map": "/aramayiso.github.io/Pinder/static/css/2.1a02f21c.chunk.css.map",
-    "static/css/main.fd401a07.chunk.css.map": "/aramayiso.github.io/Pinder/static/css/main.fd401a07.chunk.css.map",
-    "static/js/2.f5fcf1c6.chunk.js.LICENSE.txt": "/aramayiso.github.io/Pinder/static/js/2.f5fcf1c6.chunk.js.LICENSE.txt",
-    "static/media/logo.2d27ead7.svg": "/aramayiso.github.io/Pinder/static/media/logo.2d27ead7.svg"
+    "main.css": "/Pinder/static/css/main.fd401a07.chunk.css",
+    "main.js": "/Pinder/static/js/main.e08a8ad9.chunk.js",
+    "main.js.map": "/Pinder/static/js/main.e08a8ad9.chunk.js.map",
+    "runtime-main.js": "/Pinder/static/js/runtime-main.4ea4df0f.js",
+    "runtime-main.js.map": "/Pinder/static/js/runtime-main.4ea4df0f.js.map",
+    "static/css/2.1a02f21c.chunk.css": "/Pinder/static/css/2.1a02f21c.chunk.css",
+    "static/js/2.b52765b6.chunk.js": "/Pinder/static/js/2.b52765b6.chunk.js",
+    "static/js/2.b52765b6.chunk.js.map": "/Pinder/static/js/2.b52765b6.chunk.js.map",
+    "static/js/3.9ac43d7d.chunk.js": "/Pinder/static/js/3.9ac43d7d.chunk.js",
+    "static/js/3.9ac43d7d.chunk.js.map": "/Pinder/static/js/3.9ac43d7d.chunk.js.map",
+    "index.html": "/Pinder/index.html",
+    "static/css/2.1a02f21c.chunk.css.map": "/Pinder/static/css/2.1a02f21c.chunk.css.map",
+    "static/css/main.fd401a07.chunk.css.map": "/Pinder/static/css/main.fd401a07.chunk.css.map",
+    "static/js/2.b52765b6.chunk.js.LICENSE.txt": "/Pinder/static/js/2.b52765b6.chunk.js.LICENSE.txt",
+    "static/media/logo.2d27ead7.svg": "/Pinder/static/media/logo.2d27ead7.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d781f170.js",
+    "static/js/runtime-main.4ea4df0f.js",
     "static/css/2.1a02f21c.chunk.css",
-    "static/js/2.f5fcf1c6.chunk.js",
+    "static/js/2.b52765b6.chunk.js",
     "static/css/main.fd401a07.chunk.css",
-    "static/js/main.bb412c16.chunk.js"
+    "static/js/main.e08a8ad9.chunk.js"
   ]
 }
