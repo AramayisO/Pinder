@@ -5,6 +5,7 @@ import { AuthContext } from '../auth';
 import { ProfileContext } from '../profile';
 import './PetMatches.css';
 
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
 const PetDetailPage = () => {
 
@@ -28,8 +29,16 @@ const PetDetailPage = () => {
                     <img className="card-img-top" src={profile.imageUrl} alt="" />
                     <div className="card-body">
                         <h5 className="card-title">{profile.name}</h5>
-                        <p className="card-text">{profile.breed}</p>
-                    <div className="detail-card-content">More Description a a a a a a a a a a a a a More Description Here</div>
+                        <p className="card-text">
+                            {capitalize(profile.breed)}
+                            <br />
+                            {capitalize(profile.gender)}
+                            <br />
+                            {profile.age} years old
+                        </p>
+                        <p className='card-ext small'>
+                            {profile.bio}
+                        </p>
                     </div>            
                 </div>
             </div>

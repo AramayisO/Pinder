@@ -28,9 +28,9 @@ const MyProfilesPage = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
+        position: 'fixed',
         bottom: '20px',
-        right: '0',
+        right: '30px',
     };
 
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
@@ -41,7 +41,7 @@ const MyProfilesPage = () => {
     }, [])
 
     return (
-        <div className='container py-5 vh-100' style={{ position: 'relative' }}>
+        <div className='container py-5' >
             <p className='h1'>Your Profiles</p>
             <hr />
             {profiles.length ?
