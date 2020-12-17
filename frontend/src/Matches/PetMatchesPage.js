@@ -28,23 +28,31 @@ class ProfilesList extends React.Component {
         const {profiles} = this.state;
 
         return (
-            <>
-                <NavPage />
-                {profiles.map(profile => (
-                    <li key={profile.id}>
-                        <Link to={`/profiles/${profile.id}`}>
-                            <div className="card">
-                                <img className="card-image" src={profile.imageUrl} alt="" width={200}/>
-                                <div className="card-content">
-                                    <div className="card-content-name">{profile.name}</div>
-                                    <div className="card-content">{profile.breed}</div>
-                                    <div className="card-content">Description Here</div>
+            <div className='container'>
+                <p className='h1'>Your Matches</p>
+                <hr />
+                {profiles.length
+                    ? profiles.map(profile => (
+                        <Link to={`/profiles/${profile.id}`} style={{ textDecoration: 'none', color: '#212121' }}>
+                            <div className="card mb-1 shadow" style={{ maxWidth: '100%' }}>
+                                <div className="row no-gutters">
+                                    <div className="col-4">
+                                        <img className="card-image" src={profile.imageUrl} alt="" width={350} />
+                                    </div>
+                                    <div className="col-8">
+                                        <div className="card-body">
+                                            <div className="card-title">{profile.name}</div>
+                                            <div className="card-text">{profile.breed}</div>
+                                            <div className="card-text">Description Here</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>                            
-                        </Link>
-                    </li>
-                ))}
-            </>
+                        </Link>)
+                    ): (
+                        <p>You do not have any matches yet &#9785;</p>
+                    )}
+            </div>
         )
     }
 

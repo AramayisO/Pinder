@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Alert, Button, Form } from 'react-bootstrap'
 
 const RegisterForm = (props) => {
 
@@ -17,99 +18,58 @@ const RegisterForm = (props) => {
     }
 
     return (
-        <div className="container">
-            <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        value={name}
-                        onChange = {e=> setName(e.target.value)}
-                        placeholder="Your Name"
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={e=> setEmail(e.target.value)}
-                        placeholder="Email"
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={e=> setPassword(e.target.value)}
-                        placeholder="Password"
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="passwordConfirm">Confirm Password</label>
-                    <input
-                        type="password"
-                        id="passwordConfirm"
-                        value={passwordConfirm}
-                        onChange = {e=> setPasswordConfirm(e.target.value)}
-                        placeholder="Confirm password"
-                    />
-                </div>
-                {/* <div className="form-group">
-                    <label htmlFor="street">Street address</label>
-                    <input
-                        type="text"
-                        id="street"
-                        value={street}
-                        onChange = {e => setStreet(e.target.value)}
-                        placeholder="Street"
-                    />
-                    <label htmlFor="city">City</label>
-                    <input
-                        type="text"
-                        id="city"
-                        value={city}
-                        onChange = {e => setCity(e.target.value)}
-                        placeholder="City"
-                    />
-
-                </div>
-                <div className="form-group">
-                    <label htmlFor="usState">State</label>
-                    <input 
-                        type="text"
-                        id="usState"
-                        value={usState}
-                        onChange={e => setUsState(e.target.value)}
-                        placeholder="State"
-                    />
-                    <lable htmlFor="zip">Zip</lable>
-                    <input
-                        type="text"
-                        id="zip"
-                        value={zip}
-                        onChange={e => setZip(e.target.value)}
-                        placeholder="zip"
-                    />
-                </div> */}
-                {props.error &&
-                <div className="alert alert-danger" role="alert">
+        <Form onSubmit={handleSubmit}>
+            <Form.Group controlId='name'>
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange = {e=> setName(e.target.value)}
+                    placeholder="Your Name"
+                />
+            </Form.Group>
+            <Form.Group controlId='email'>
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={e=> setEmail(e.target.value)}
+                    placeholder="Email"
+                />
+            </Form.Group>
+            <Form.Group controlId='password'>
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={e=> setPassword(e.target.value)}
+                    placeholder="Password"
+                />
+            </Form.Group>
+            <Form.Group controlId='password'>
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                    type="password"
+                    id="passwordConfirm"
+                    value={passwordConfirm}
+                    onChange = {e=> setPasswordConfirm(e.target.value)}
+                    placeholder="Confirm password"
+                />
+            </Form.Group>
+            {props.error &&
+                <Alert variant="danger">
                     {props.error}
-                </div>
-                }
-                <div className="text-center">
-                    <button
-                        type="submit"
-                        className="btn btn-primary px-4">
-                            Register
-                    </button>
-                </div>
-            </form>
-        </div>
+                </Alert>
+            }
+            <div className="text-center">
+                <Button type="submit" className="px-4 LoginForm-button">
+                    Login
+                </Button>
+            </div>
+        </Form>
     );
 }
 

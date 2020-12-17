@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import Card from 'react-bootstrap/Card';
 import {  useRouteMatch } from 'react-router-dom';
 import { AuthContext } from '../auth';
 import { ProfileContext } from '../profile';
@@ -22,16 +23,16 @@ const PetDetailPage = () => {
         .then(profileObj => setProfile(profileObj))
         .catch(error => console.log(error));
     return (
-        <>
-        <NavPage />
-        {profile ? (
-            <div className="detail-card">
-                <img className="detail-image" src={profile.imageUrl} alt="" />
-                <div className="detail-card-content">
-                <div className="card-content-name">{profile.name}</div>
-                <div className="detail-card-content">{profile.breed}</div>
-                <div className="detail-card-content">More Description a a a a a a a a a a a a a More Description Here</div>
-                </div>            
+        <>{profile ? (
+            <div className="container d-flex justify-content-center align-items-center vh-100">
+                <div className="card shadow" style={{ width: '18rem' }}>
+                    <img className="card-img-top" src={profile.imageUrl} alt="" />
+                    <div className="card-body">
+                        <h5 className="card-title">{profile.name}</h5>
+                        <p className="card-text">{profile.breed}</p>
+                    <div className="detail-card-content">More Description a a a a a a a a a a a a a More Description Here</div>
+                    </div>            
+                </div>
             </div>
         ) : (
             <p>Profile not found</p>
