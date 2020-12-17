@@ -15,7 +15,7 @@ function NavPage(props) {
                 <Nav className="mr-auto">
                     <Link to="/">Dashboard</Link>
                     <Link to="/find">Find a Furry Friend</Link>
-                    <Link to="/create">Find a Human</Link>
+                    <Link to="/profiles">Find a Human</Link>
                     <Link to="/logout">Logout</Link>
                 </Nav>
             </Navbar.Collapse>

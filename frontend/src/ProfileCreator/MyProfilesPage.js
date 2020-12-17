@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../auth';
 import { ProfileContext } from '../profile';
-
+import NavPage from '../Navigation';
 
 const MyProfilesPage = () => {
 
@@ -41,7 +41,8 @@ const MyProfilesPage = () => {
     }, [])
 
     return (
-        <div className='container py-5' >
+        <div className='container pb-5' >
+            <NavPage />
             <p className='h1'>Your Profiles</p>
             <hr />
             {profiles.length ?
